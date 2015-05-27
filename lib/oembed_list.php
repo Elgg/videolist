@@ -7,6 +7,7 @@
 
 return array(
 	//   [type,      JSON-emitting endpoint,                    item url pattern]
+    array('youtube', 'http://www.youtube.com/oembed', '~^https?\\://(youtu\\.be/|(www\\.)?youtube\\.com/watch\\?vi?=)([a-z0-9]+\\.)*~'),
 	array('viddler', 'http://lab.viddler.com/services/oembed/', '~^http\\://([a-z0-9]+\\.)*viddler\\.com/.+~'),
 	array('hulu', 'http://www.hulu.com/api/oembed.json', '~^http\\://www\\.hulu\\.com/watch/.+~'),
 	array('revision3', 'http://revision3.com/api/oembed/', '~^http\\://([a-z0-9]+\\.)*revision3\\.com/.+~'),
