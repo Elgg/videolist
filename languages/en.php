@@ -5,7 +5,7 @@
  * @package ElggVideolist
  */
 
-$english = array(
+return array(
 
 	/**
 	 * Menu items and titles
@@ -77,5 +77,3 @@ View and comment on the new video:
 	'videolist:continue' => "Continue",
 
 );
-
-add_translation("en", $english);
