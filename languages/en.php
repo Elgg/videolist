@@ -25,7 +25,8 @@ $english = array(
 
 	'videolist:new' => "A new video",
 	'videolist:notification:subject' => "New video added",
-	'videolist:notification' =>
+	'videolist:notification:summary' => "New video added",
+	'videolist:notification:body' =>
 '%s added a new video:
 
 %s
