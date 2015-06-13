@@ -74,7 +74,7 @@ $video->container_guid = $container_guid;
 if ($video->save()) {
 
 	elgg_clear_sticky_form('videolist');
-	
+
 	// Let's save the thumbnail in the data folder
     $thumb_url = $video->thumbnail;
     if ($thumb_url) {
@@ -93,7 +93,12 @@ if ($video->save()) {
 	system_message(elgg_echo('videolist:saved'));
 
 	if ($new_video) {
-		add_to_river('river/object/videolist_item/create', 'create', elgg_get_logged_in_user_guid(), $video->guid);
+		elgg_create_river_item(array(
+			'view' => 'river/object/videolist_item/create',
+			'action_type' => 'create',
+			'subject_guid' => elgg_get_logged_in_user_guid(),
+			'object_guid' => $video->guid,
+		));
 	}
 
 	forward($video->getURL());
