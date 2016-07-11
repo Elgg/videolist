@@ -74,6 +74,8 @@ function videolist_init() {
     // handle URLs without scheme
     elgg_register_plugin_hook_handler('videolist:preprocess', 'url', 'videolist_preprocess_url');
 
+	elgg_register_plugin_hook_handler('likes:is_likable', 'object:videolist_item', 'Elgg\Values::getTrue');
+
 	// Register actions
 	$actions_path = elgg_get_plugins_path() . "videolist/actions/videolist";
 	elgg_register_action("videolist/add", "$actions_path/add.php");
