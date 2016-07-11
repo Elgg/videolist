@@ -1,7 +1,7 @@
 <?php
 /**
 * Elgg videolist item delete
-* 
+*
 * @package ElggVideolist
 */
 
@@ -19,11 +19,18 @@ if (!$videolist_item->canEdit()) {
 }
 
 $container = $videolist_item->getContainerEntity();
+$owner_guid = $videolist_item->getOwnerGUID();
 $url = $videolist_item->getURL();
 
 if (!$videolist_item->delete()) {
 	register_error(elgg_echo("videolist:deletefailed"));
 } else {
+	// Remove the video thumbnail
+	$file = new ElggFile();
+	$file->owner_guid = $owner_guid;
+	$file->setFilename("videolist/{$guid}.jpg");
+	$file->delete();
+
 	system_message(elgg_echo("videolist:deleted"));
 }
 
