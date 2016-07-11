@@ -5,7 +5,7 @@
  * @package ElggVideolist
  */
 
-elgg_load_js('elgg.videolist');
+elgg_require_js('videolist/videolist');
 
 $variables = elgg_get_config('videolist');
 
@@ -21,14 +21,14 @@ if(empty($vars['guid'])){
 ?>
 <div>
 <label><?php echo elgg_echo("videolist:video_url") ?></label><br />
-<?php 
+<?php
 	echo elgg_view("input/text", array(
 		'name' => 'video_url',
 		'value' => $vars['video_url'],
 	));
 ?>
 </div>
-<div id="videolist-metadata" class="hidden">		
+<div id="videolist-metadata" class="hidden">
 	<?php echo $input_bit;?>
 </div>
 <?php
