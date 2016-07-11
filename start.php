@@ -216,7 +216,7 @@ function videolist_prepare_notification($hook, $type, $notification, $params) {
 	$notification->body = elgg_echo('videolist:notification:body', array(
 		$owner->name,
 		$entity->title,
-		$entity->getExcerpt(),
+		$entity->description,
 		$entity->getURL()
 	), $language);
 
